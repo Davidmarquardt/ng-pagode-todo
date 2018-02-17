@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+@keyframes background-gradient { 
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+  
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  // animation: background-gradient 45s ease infinite;
+  background: linear-gradient(270deg, #329b80, #b79404, #1b00f7, #ea00f7);
+  background-size: 800% 800%;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-shadow: 1px 1px 12px rgba(0,0,0,0.3);
+}
+
+.wrapper {
+  width: 475px;
+}
+
+.list-wrapper {
+  list-style: none;
+  padding: 0;
+}
+
+.list-item {
+  padding: 15px;
+  background-color: rgba(0, 215, 253, 0.3);
+  margin: 15px 0;
+  border-radius: 6px;
+  border: 1px solid rgba(75, 231, 255, 0.3);
+  box-shadow: 1px 1px 12px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.list-item:hover {
+  padding: 15px;
+  background-color: rgba(0, 215, 253, 0.5);
+  margin: 15px 0;
+  border-radius: 6px;
+  border: 1px solid rgba(75, 231, 255, 0.5);
+  
+  transition: 200ms;
+}
+
+.list-item.done {
+  text-decoration: line-through;
+  opacity: 0.6;
+  transition: 200ms;
+}
+
+.list-item-text {
+  margin-right: 56px;
+  display: block;
+}
+
+.list-item-edit input {
+  padding: 15px;
+  background-color: rgba(207, 207, 207, 0.6);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  position: relative;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  transition: 200ms;
+  font-size: 16px;
+  text-shadow: 1px 1px 12px rgba(0,0,0,0.3);
+}
+
+.list-item-edit button {
+  display: none;
+}
+
+.form-wrapper {
+  display: flex;
+  width: 100%;
+  flex-grow: auto;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid white;
+}
+
+.form-wrapper > input:focus {
+  box-shadow: 1px 1px 1px white;
+}
+
+.form-wrapper > input {
+  flex-grow: 2;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.form-wrapper > input:placeholder-shown {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.form-wrapper > input::placeholder {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.form-wrapper > button {
+  display: none;
+}
+
+.done-button {
+  position: absolute;
+  right: 15px;
+  top: 12.5px;
+  background-color: rgba(0, 215, 253, 0.7);
+  border-radius: 4px;
+  border: 1px solid rgba(40, 223, 255, 0.7);
+  width: 22px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.done-button.done {
+  position: absolute;
+  right: 15px;
+  top: 12.5px;
+  padding: 2.5px 5px;
+  background-color: rgba(0, 215, 253, 0.7);
+  border-radius: 4px;
+  border: 1px solid rgba(40, 223, 255, 0.7);
+  height: inherit;
+  width: inherit;
+}
+
+.delete-button {
+  position: absolute;
+  right: 45px;
+  top: 12.5px;
+  padding: 1.6px 5px;
+  background-color: rgba(253, 2, 0, 0.7);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 73, 71, 0.7);
+  cursor: pointer;
+}
+
+.order-buttons-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin: 0px -5px;
+}
+
+@media (max-width: 475px){
+  .order-buttons-wrapper {
+    flex-direction: column;
+  }
+}
+
+.order-buttons-label {
+  padding: 15px;
+}
+
+.display-mode-button {
+  padding: 15px;
+  margin: 5px;
+  border: 1px solid white;
+  border-radius: 6px;
+  box-shadow: 1px 1px 12px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+.display-mode-button.active {
+  background-color: white;
+  color: #929292;
+}

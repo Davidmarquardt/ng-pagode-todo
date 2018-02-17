@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="app.css">
+  <title>Pagode's Todo</title>
+</head>
+<body>
+  <div ng-app="pagodeTodo" class="app">
+    <div class="wrapper">
+      <h1>PAGODE'S TODO</h1>
+      <form>
+        <input placeholder="Buscar Tarefa" ng-model="taskSearch" type="text">
+      </form>
+      <form ng-submit="addTask()" ng-controller="taskCreator" class="form-wrapper" name="taskCreatorForm" novalidate>
+        <input name="taskCreatorInput" type="text" ng-model="newTask" placeholder="Adicionar tarefa"></input>
+        <button type="submit">Adicionar</button>
+      </form>
+      <ul ng-controller="taskList" class="list-wrapper">
+        <li ng-repeat="task in taskList | filter:taskSearch">
+          <div ng-dblclick="HandleEdit()" ng-if="!task.onEdit" ng-class="task.onEdit ? 'list-item-edit' : 'list-item'">
+            <span class="list-item-text">{{ task.text }}</span>
+            <div class="delete-button" ng-click="deleteTask()">
+              <i class="ion-close"></i>
+            </div>
+            <div class="done-button" ng-click="doTask()">
+              <i ng-show="task.done" class="ion-android-done"></i>
+            </div>
+          </div>
+          <div ng-if="task.onEdit" ng-class="task.onEdit ? 'list-item-edit' : 'list-item'">
+            <form ng-submit="editTask()">
+              <input ng-value="task.text" ng-model="newTaskText" type="text"></input>
+              <button type="submit">Adicionar</button>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
