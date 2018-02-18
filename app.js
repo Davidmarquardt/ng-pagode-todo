@@ -1,5 +1,13 @@
 var app = angular.module('pagodeTodo', []);
 
+app.run(($rootScope) => {
+  $rootScope.isSearchOpen = false;
+
+  $rootScope.toggleSearchBar = function () {
+    $rootScope.isSearchOpen = !$rootScope.isSearchOpen;
+  };
+});
+
 app.controller('taskCreator', function ($rootScope, $scope) {
   $scope.newTask = '';
   $scope.addTask = function () {
