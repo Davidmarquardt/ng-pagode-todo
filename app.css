@@ -12,7 +12,7 @@
 }
 
 body {
-  // animation: background-gradient 45s ease infinite;
+  animation: background-gradient 45s ease infinite;
   background: linear-gradient(270deg, #329b80, #b79404, #1b00f7, #ea00f7);
   background-size: 800% 800%;
 }
