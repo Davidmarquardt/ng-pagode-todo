@@ -60,4 +60,6 @@ app.controller('taskList', function ($scope) {
     }
     this.task.onEdit = false;
   }
+
 });
+

@@ -11,10 +11,15 @@
 <body>
   <div ng-app="pagodeTodo" class="app">
     <div class="wrapper">
-      <h1>PAGODE'S TODO</h1>
-      <form>
-        <input placeholder="Buscar Tarefa" ng-model="taskSearch" type="text">
-      </form>
+      <div class="app-nav">
+        <h1 ng-hide="isSearchOpen" class="app-title">PAGODE'S TODO</h1>
+        <div ng-class="isSearchOpen ? 'search-bar open' : 'search-bar'">
+          <form ng-if="isSearchOpen">
+            <input placeholder="Buscar Tarefa" ng-model="$parent.taskSearch" type="text">
+          </form>
+          <button class="search-bar-button" ng-click="toggleSearchBar()"><i ng-class="isSearchOpen ? 'ion-ios-close-empty' : 'ion-ios-search'"></i></button>
+        </div>
+      </div>
       <form ng-submit="addTask()" ng-controller="taskCreator" class="form-wrapper" name="taskCreatorForm" novalidate>
         <input name="taskCreatorInput" type="text" ng-model="newTask" placeholder="Adicionar tarefa"></input>
         <button type="submit">Adicionar</button>
