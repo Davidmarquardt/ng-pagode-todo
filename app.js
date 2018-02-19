@@ -62,6 +62,10 @@ app.controller('taskList', function ($scope) {
     }
     this.task.onEdit = false;
   }
-
 });
 
+app.filter('reverse', function () {
+  return function (items) {
+    return items.slice().reverse();
+  };
+});

@@ -25,7 +25,7 @@
         <button type="submit">Adicionar</button>
       </form>
       <ul ng-controller="taskList" class="list-wrapper">
-        <li ng-repeat="task in taskList | filter:taskSearch">
+        <li ng-repeat="task in taskList | filter:taskSearch | reverse">
           <div ng-dblclick="HandleEdit()" ng-if="!task.onEdit" ng-class="task.onEdit ? 'list-item-edit' : 'list-item'">
             <span class="list-item-text">{{ task.text }}</span>
             <div class="delete-button" ng-click="deleteTask()">
