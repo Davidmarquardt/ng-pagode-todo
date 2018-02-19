@@ -11,7 +11,9 @@ app.run(($rootScope) => {
 app.controller('taskCreator', function ($rootScope, $scope) {
   $scope.newTask = '';
   $scope.addTask = function () {
-    $rootScope.$broadcast('addTask', $scope.newTask);
+    if($scope.newTask !== '') {
+      $rootScope.$broadcast('addTask', $scope.newTask);
+    }
     $scope.newTask = '';
   };
 });
